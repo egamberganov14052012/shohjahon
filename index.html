@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="uz" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xorazm Viloyati - Afsonaviy Zamin</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Noto Serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        khiva: {
+                            turquoise: '#00A896',
+                            blue: '#028090',
+                            darkblue: '#05668D',
+                            sand: '#F0E6D2',
+                            gold: '#D4AF37',
+                            terracotta: '#C85A32',
+                            night: '#0B132B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Noto Serif"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Sharqona naqshli fon berish uchun CSS pattern */
+        .oriental-pattern {
+            background-color: #fdfbf7;
+            background-image: radial-gradient(#00a896 0.75px, transparent 0.75px), radial-gradient(#d4af37 0.75px, #fdfbf7 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
+
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(11, 19, 43, 0.4) 0%, rgba(11, 19, 43, 0.85) 100%);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .dark-glass-card {
+            background: rgba(11, 19, 43, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 168, 150, 0.3);
+        }
+    </style>
+</head>
+<body class="font-sans bg-[#FAF8F5] text-gray-800 antialiased selection:bg-khiva-turquoise selection:text-white">
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-khiva-turquoise to-khiva-gold flex items-center justify-center text-white text-xl font-bold shadow-md transform group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid font-serif">X</i>
+                </div>
+                <span class="font-serif text-2xl font-bold text-white drop-shadow-md group-hover:text-khiva-sand transition-colors">
+                    Xorazm
+                </span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#tarix" class="text-white hover:text-khiva-gold font-medium transition-colors drop-shadow">Tarix</a>
+                <a href="#obidalar" class="text-white hover:text-khiva-gold font-medium transition-colors drop-shadow">Obidalar</a>
+                <a href="#oshxona" class="text-white hover:text-khiva-gold font-medium transition-colors drop-shadow">Madaniyat & Taomlar</a>
+                <a href="#hududlar" class="text-white hover:text-khiva-gold font-medium transition-colors drop-shadow">Hududlar</a>
+                <a href="#galereya" class="text-white hover:text-khiva-gold font-medium transition-colors drop-shadow">Galereya</a>
+            </div>
+
+            <!-- Action Button -->
+            <div class="hidden md:block">
+                <a href="#obidalar" class="bg-gradient-to-r from-khiva-turquoise to-khiva-blue text-white px-5 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-khiva-turquoise/40 hover:scale-105 transition-all duration-300">
+                    Sayohatni Boshlash
+                </a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-khiva-night/95 backdrop-blur-md px-4 pt-2 pb-6 space-y-3 border-b border-khiva-turquoise/20">
+            <a href="#tarix" class="block text-white hover:text-khiva-gold font-medium py-2">Tarix</a>
+            <a href="#obidalar" class="block text-white hover:text-khiva-gold font-medium py-2">Obidalar</a>
+            <a href="#oshxona" class="block text-white hover:text-khiva-gold font-medium py-2">Madaniyat & Taomlar</a>
+            <a href="#hududlar" class="block text-white hover:text-khiva-gold font-medium py-2">Hududlar</a>
+            <a href="#galereya" class="block text-white hover:text-khiva-gold font-medium py-2">Galereya</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-khiva-night text-white pt-20">
+        <!-- Background Banner Video or Dynamic Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=2000" 
+                 alt="Ichan Qal'a Khiva" 
+                 class="w-full h-full object-cover object-center transform scale-105 animate-pulse"
+                 style="animation-duration: 10s;"
+                 onerror="this.src='https://placehold.co/1920x1080/05668D/FFFFFF?text=Xorazm+Ichan+Qal%27a'">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center space-y-6">
+            <div class="inline-flex items-center space-x-2 bg-khiva-turquoise/20 border border-khiva-turquoise/40 px-4 py-1.5 rounded-full backdrop-blur-md text-khiva-sand text-sm font-medium mb-4">
+                <i class="fa-solid fa-gem text-khiva-gold"></i>
+                <span>O'zbekistonning Ochiq Osmon Ostidagi Muzeyi</span>
+            </div>
+            
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-tight">
+                Ko'hna va Boqiy <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-khiva-sand via-khiva-gold to-khiva-turquoise">
+                    Xorazm Viloyati
+                </span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-lg sm:text-xl text-gray-200 font-light leading-relaxed">
+                Ming yillik sivilizatsiya beshigi, Al-Xorazmiy va Beruniy yurti, afsonaviy Ichan Qal'a hamda betakror Lazgi sadosi sizni kutmoqda.
+            </p>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#obidalar" class="w-full sm:w-auto bg-gradient-to-r from-khiva-gold to-khiva-terracotta text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-khiva-gold/30 hover:-translate-y-1 transition-all">
+                    Obidalarni Keshf Etish <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#oshxona" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-md text-white font-semibold px-8 py-4 rounded-xl hover:-translate-y-1 transition-all">
+                    Xorazm Oshxonasi
+                </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-12 max-w-4xl mx-auto">
+                <div class="dark-glass-card p-4 rounded-xl text-center">
+                    <div class="text-2xl sm:text-3xl font-bold text-khiva-turquoise">2700+</div>
+                    <div class="text-xs sm:text-sm text-gray-300">Yillik Tarix</div>
+                </div>
+                <div class="dark-glass-card p-4 rounded-xl text-center">
+                    <div class="text-2xl sm:text-3xl font-bold text-khiva-gold">UNESCO</div>
+                    <div class="text-xs sm:text-sm text-gray-300">Jahon Merosi</div>
+                </div>
+                <div class="dark-glass-card p-4 rounded-xl text-center">
+                    <div class="text-2xl sm:text-3xl font-bold text-khiva-turquoise">250+</div>
+                    <div class="text-xs sm:text-sm text-gray-300">Tarixiy Obidalar</div>
+                </div>
+                <div class="dark-glass-card p-4 rounded-xl text-center">
+                    <div class="text-2xl sm:text-3xl font-bold text-khiva-gold">1.7M+</div>
+                    <div class="text-xs sm:text-sm text-gray-300">Aholi Soni</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarix va Umumiy Ma'lumot Section -->
+    <section id="tarix" class="py-20 oriental-pattern relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left Text Column -->
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2 text-khiva-turquoise font-semibold uppercase tracking-wider text-sm">
+                        <span class="w-8 h-0.5 bg-khiva-turquoise"></span>
+                        <span>Buyuk Sivilizatsiya</span>
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-khiva-night">
+                        Sharq Uyg'onish Davrining Markazi
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        Xorazm — Markaziy Osiyodagi eng qadimiy madaniyat oshoqlaridan biri. Bu zamin dunyo ilm-faniga beqiyos hissa qo'shgan al-Xorazmiy (algebra asoschisi), Abu Rayhon Beruniy kabi buyuk alomalarni tarbiyalagan.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Buyuk Ipak Yo'lining chorrahasida joylashgan Xorazm hududida qadimgi qal'alar, saroylar va minoralar hozirgacha saqlanib qolgan. Bu yerda asrlar davomida shakllangan milliy urf-odatlar va san'at namunalari o'zgacha jozobaga ega.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-start space-x-3 bg-white p-4 rounded-xl border border-khiva-sand shadow-sm">
+                            <i class="fa-solid fa-atom text-2xl text-khiva-turquoise mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-khiva-night">Ilm-Fan Beshigi</h4>
+                                <p class="text-xs text-gray-500">Algebra va Xaritasozlik tarmoqlari rivojlangan</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 bg-white p-4 rounded-xl border border-khiva-sand shadow-sm">
+                            <i class="fa-solid fa-monument text-2xl text-khiva-gold mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-khiva-night">Noyob Me'morchilik</h4>
+                                <p class="text-xs text-gray-500">Moviy koshinlar va yog'och oymakorligi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Grid -->
+                <div class="relative">
+                    <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&q=80&w=1000" 
+                             alt="Al-Xorazmiy haykali yoki Xiva Obidalari" 
+                             class="w-full h-[450px] object-cover hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/800x600/028090/FFFFFF?text=Xorazm+Tarixi'">
+                    </div>
+                    <!-- Decorative Element -->
+                    <div class="absolute -bottom-6 -left-6 w-48 h-48 bg-gradient-to-tr from-khiva-turquoise to-khiva-gold rounded-2xl -z-10 transform -rotate-6 opacity-80"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Attractions / Obidalar Section -->
+    <section id="obidalar" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center space-x-2 text-khiva-turquoise font-semibold uppercase tracking-wider text-sm">
+                    <span class="w-8 h-0.5 bg-khiva-turquoise"></span>
+                    <span>Tarixiy Obidalar</span>
+                    <span class="w-8 h-0.5 bg-khiva-turquoise"></span>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-khiva-night">
+                    Ajoyib Me'moriy Obidalar va Qal'alar
+                </h2>
+                <p class="text-gray-600">
+                    Xorazmning har bir burchagi jonli tarixdir. Eng mashhur obidalar bilan tanishing.
+                </p>
+            </div>
+
+            <!-- Attractions Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Ichan Qal'a -->
+                <div class="bg-[#FAF8F5] rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1628105031102-12463273e34b?auto=format&fit=crop&q=80&w=800" 
+                             alt="Ichan Qal'a" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x400/00A896/FFFFFF?text=Ichan+Qal%27a'">
+                        <span class="absolute top-4 right-4 bg-khiva-gold text-white text-xs font-bold px-3 py-1.5 rounded-full shadow">
+                            UNESCO
+                        </span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-serif text-2xl font-bold text-khiva-night group-hover:text-khiva-turquoise transition-colors">
+                            Ichan Qal'a
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Ochiq osmon ostidagi shaharchaga o'xshash mashhur tarixiy majmua. Qalin devorlar bilan o'ralgan bu qal'ada 50 dan ortiq tarixiy yodgorliklar saqlangan.
+                        </p>
+                        <div class="pt-2 flex justify-between items-center text-xs text-gray-500 border-t border-gray-200">
+                            <span><i class="fa-solid fa-location-dot text-khiva-turquoise mr-1"></i> Xiva shahri</span>
+                            <span class="font-semibold text-khiva-darkblue">V asr mil.avv.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Kalta Minor -->
+                <div class="bg-[#FAF8F5] rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=800" 
+                             alt="Kalta Minor" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x400/028090/FFFFFF?text=Kalta+Minor'">
+                        <span class="absolute top-4 right-4 bg-khiva-turquoise text-white text-xs font-bold px-3 py-1.5 rounded-full shadow">
+                            Tashrif Buyurish Shart
+                        </span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-serif text-2xl font-bold text-khiva-night group-hover:text-khiva-turquoise transition-colors">
+                            Kalta Minor
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            To'liq moviy va yashil koshinlar bilan qoplangan mashhur minora. Reja boicha eng baland minora bo'lishi kerak edi, ammo tugallanmay qolgan.
+                        </p>
+                        <div class="pt-2 flex justify-between items-center text-xs text-gray-500 border-t border-gray-200">
+                            <span><i class="fa-solid fa-location-dot text-khiva-turquoise mr-1"></i> Ichan Qal'a markazida</span>
+                            <span class="font-semibold text-khiva-darkblue">1851-1855 yy.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Toshhovli Saroyi -->
+                <div class="bg-[#FAF8F5] rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&q=80&w=800" 
+                             alt="Toshhovli Saroyi" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x400/C85A32/FFFFFF?text=Toshhovli'">
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-serif text-2xl font-bold text-khiva-night group-hover:text-khiva-turquoise transition-colors">
+                            Toshhovli Saroyi
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Xiva xonlarining hashamatli qarorgohi. Saroy o'zining murakkab yog'och oymakorligi va noyob koshinli devoriy naqshlari bilan mashhur.
+                        </p>
+                        <div class="pt-2 flex justify-between items-center text-xs text-gray-500 border-t border-gray-200">
+                            <span><i class="fa-solid fa-location-dot text-khiva-turquoise mr-1"></i> Xiva shahri</span>
+                            <span class="font-semibold text-khiva-darkblue">1830-1838 yy.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Qadimgi Sahro Qal'alari -->
+                <div class="bg-[#FAF8F5] rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://placehold.co/600x400/D4AF37/FFFFFF?text=Sahro+Qal%27alari" 
+                             alt="Ayaz Qal'a & Tuproq Qal'a" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-serif text-2xl font-bold text-khiva-night group-hover:text-khiva-turquoise transition-colors">
+                            Ayaz Qal'a & Tuproq Qal'a
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Qizilqum bag'rida joylashgan qadimgi Ellikqal'a istehkomlari. Miloddan avvalgi davrlarga oid bu qal'alar afsonaviy mudofaa inshootlaridir.
+                        </p>
+                        <div class="pt-2 flex justify-between items-center text-xs text-gray-500 border-t border-gray-200">
+                            <span><i class="fa-solid fa-location-dot text-khiva-turquoise mr-1"></i> Xorazm atrofida</span>
+                            <span class="font-semibold text-khiva-darkblue">BC IV-III asrlar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Juma Masjidi -->
+                <div class="bg-[#FAF8F5] rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://placehold.co/600x400/05668D/FFFFFF?text=Juma+Masjidi" 
+                             alt="Juma Masjidi" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-serif text-2xl font-bold text-khiva-night group-hover:text-khiva-turquoise transition-colors">
+                            Juma Masjidi
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            218 ta oymakor yog'och ustunlardan tashkil topgan noyob masjid. Har bir ustun o'zgacha uslubda va turli davrlarda o'yilgan.
+                        </p>
+                        <div class="pt-2 flex justify-between items-center text-xs text-gray-500 border-t border-gray-200">
+                            <span><i class="fa-solid fa-location-dot text-khiva-turquoise mr-1"></i> Ichan Qal'a</span>
+                            <span class="font-semibold text-khiva-darkblue">X-XVIII asrlar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Nurullabay Saroyi -->
+                <div class="bg-[#FAF8F5] rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://placehold.co/600x400/00A896/FFFFFF?text=Nurullabay+Saroyi" 
+                             alt="Nurullabay Saroyi" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="font-serif text-2xl font-bold text-khiva-night group-hover:text-khiva-turquoise transition-colors">
+                            Nurullabay Saroyi
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Dishan Qal'ada joylashgan saroy. Sharqona va Yevropa me'morchiligi sintezini o'zida aks ettirgan so'nggi Xiva xonlari qarorgohi.
+                        </p>
+                        <div class="pt-2 flex justify-between items-center text-xs text-gray-500 border-t border-gray-200">
+                            <span><i class="fa-solid fa-location-dot text-khiva-turquoise mr-1"></i> Dishan Qal'a</span>
+                            <span class="font-semibold text-khiva-darkblue">1906-1912 yy.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Gastronomy & Culture Section -->
+    <section id="oshxona" class="py-20 bg-khiva-night text-white relative overflow-hidden">
+        <!-- Glow accents -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-khiva-turquoise/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-khiva-gold/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center space-x-2 text-khiva-gold font-semibold uppercase tracking-wider text-sm">
+                    <span class="w-8 h-0.5 bg-khiva-gold"></span>
+                    <span>Milliy Meros</span>
+                    <span class="w-8 h-0.5 bg-khiva-gold"></span>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold">
+                    Madaniyat va Betakror Xorazm Taomlari
+                </h2>
+                <p class="text-gray-300">
+                    Xorazm oshxonasi O'zbekistonning boshqa viloyatlaridan o'zining tayyorlanish usuli va maxsus retseptlari bilan ajralib turadi.
+                </p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex bg-white/10 p-1.5 rounded-full backdrop-blur-md border border-white/10">
+                    <button id="tab-taomlar-btn" onclick="switchTab('taomlar')" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-khiva-turquoise text-white shadow">
+                        <i class="fa-solid fa-utensils mr-2"></i>Milliy Taomlar
+                    </button>
+                    <button id="tab-raqslar-btn" onclick="switchTab('raqslar')" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 text-gray-300 hover:text-white">
+                        <i class="fa-solid fa-music mr-2"></i>Lazgi & San'at
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content Area: Taomlar Tab -->
+            <div id="tab-taomlar" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Food Item 1 -->
+                <div class="dark-glass-card rounded-2xl p-6 space-y-4 hover:border-khiva-gold transition-colors">
+                    <div class="h-48 rounded-xl overflow-hidden">
+                        <img src="https://placehold.co/600x400/00A896/FFFFFF?text=Shivit+Osh" 
+                             alt="Shivit Osh" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-khiva-sand">Shivit Osh (Yashil Ugra)</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        To'liq shivit (ukrop) sharbati bilan qorilgan xamirdan tayyorlanadigan yashil lag'mon. Ustiga maxsus qatiqli va go'shtli qayla solib tortiladi.
+                    </p>
+                    <span class="inline-block bg-khiva-turquoise/20 text-khiva-turquoise text-xs px-3 py-1 rounded-full font-medium">
+                        Faqat Xorazmda
+                    </span>
+                </div>
+
+                <!-- Food Item 2 -->
+                <div class="dark-glass-card rounded-2xl p-6 space-y-4 hover:border-khiva-gold transition-colors">
+                    <div class="h-48 rounded-xl overflow-hidden">
+                        <img src="https://placehold.co/600x400/D4AF37/FFFFFF?text=Tukum+Barak" 
+                             alt="Tukum Barak" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-khiva-sand">Tukum Barak</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Tuxumli chuchvara deb ham ataladi. Xamir qobig'i ichiga xom tuxum va sutli aralashma quyilib, bir zumda qaynayotgan suvda pishiriladi. Noyob mahorat talab qiladi.
+                    </p>
+                    <span class="inline-block bg-khiva-gold/20 text-khiva-gold text-xs px-3 py-1 rounded-full font-medium">
+                        Qadimiy Retsept
+                    </span>
+                </div>
+
+                <!-- Food Item 3 -->
+                <div class="dark-glass-card rounded-2xl p-6 space-y-4 hover:border-khiva-gold transition-colors">
+                    <div class="h-48 rounded-xl overflow-hidden">
+                        <img src="https://placehold.co/600x400/C85A32/FFFFFF?text=Xorazm+Baliq+Ishi" 
+                             alt="Xorazm Baliq Ishi" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-khiva-sand">Xorazmcha Qovurilgan Baliq</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Amudaryo baliqlaridan tayyorlanadigan maxsus taom. Maxsus ziravorlar va o'zgacha usulda qovurilishi baliqning ta'mini unutilmas qiladi.
+                    </p>
+                    <span class="inline-block bg-khiva-terracotta/20 text-khiva-terracotta text-xs px-3 py-1 rounded-full font-medium">
+                        Daryo Ne'mati
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- Content Area: Raqslar Tab (Hidden by default) -->
+            <div id="tab-raqslar" class="hidden grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2 text-khiva-gold text-sm font-semibold">
+                        <i class="fa-solid fa-compact-disc animate-spin"></i>
+                        <span>UNESCO Nomoddiy Madaniy Merosi</span>
+                    </div>
+                    <h3 class="font-serif text-3xl font-bold text-khiva-sand">
+                        Maftunkor va Jo'shqin "Lazgi" Raqsi
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Xorazm Lazgisi — o'zining olovli harakatlari, tana va qo'llarning o'zgacha titrashi hamda jo'shqin ritmi bilan butun dunyoga tanilgan. Lazgi shunchaki raqs emas, u qalb va ruh hayqirig'idir.
+                    </p>
+                    <ul class="space-y-3 text-gray-300 text-sm">
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-khiva-turquoise"></i>
+                            <span>Qadimiy davrlardan beri saqlanib kelayotgan ritmlar</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-khiva-turquoise"></i>
+                            <span>Doyra va Tor cholg'ularining jo'shqin uyg'unligi</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-khiva-turquoise"></i>
+                            <span>Xalqaro "Lazgi" raqs festivalining o'tkazilishi</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dark-glass-card p-4 rounded-2xl">
+                    <img src="https://placehold.co/800x500/028090/FFFFFF?text=Xorazm+Lazgi+Raqsi" 
+                         alt="Lazgi Raqsi" class="rounded-xl w-full h-80 object-cover">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Cities & Districts / Hududlar Section -->
+    <section id="hududlar" class="py-20 oriental-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center space-x-2 text-khiva-turquoise font-semibold uppercase tracking-wider text-sm">
+                    <span class="w-8 h-0.5 bg-khiva-turquoise"></span>
+                    <span>Ma'muriy Bo'linish</span>
+                    <span class="w-8 h-0.5 bg-khiva-turquoise"></span>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-khiva-night">
+                    Shaharlar va Tumanlar
+                </h2>
+                <p class="text-gray-600">
+                    Xorazm viloyati Urganch va Xiva shaharlari hamda 11 ta tumandan tashkil topgan.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- District 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-khiva-turquoise/10 text-khiva-turquoise flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-city"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-khiva-night mb-2">Urganch Shahri</h3>
+                    <p class="text-gray-500 text-xs mb-3">Viloyatning ma'muriy, iqtisodiy va madaniyat markazi.</p>
+                    <span class="text-xs font-semibold text-khiva-blue">Aholi: ~150,000+</span>
+                </div>
+
+                <!-- District 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-khiva-gold/10 text-khiva-gold flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-archway"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-khiva-night mb-2">Xiva Shahri</h3>
+                    <p class="text-gray-500 text-xs mb-3">Jahon ahamiyatiga ega afsonaviy turizm markazi.</p>
+                    <span class="text-xs font-semibold text-khiva-gold">Tarixiy Shahar</span>
+                </div>
+
+                <!-- District 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-khiva-terracotta/10 text-khiva-terracotta flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-tree"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-khiva-night mb-2">Xonqa Tumani</h3>
+                    <p class="text-gray-500 text-xs mb-3">Dehqonchilik va hunarmandchilik rivojlangan tuman.</p>
+                    <span class="text-xs font-semibold text-gray-500">Qishloq Xo'jaligi</span>
+                </div>
+
+                <!-- District 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-khiva-darkblue/10 text-khiva-darkblue flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-wheat-awn"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-khiva-night mb-2">Gurlan Tumani</h3>
+                    <p class="text-gray-500 text-xs mb-3">Viloyatning yirik dehqonchilik va bog'dorchilik hududi.</p>
+                    <span class="text-xs font-semibold text-gray-500">Bog'dorchilik</span>
+                </div>
+
+                <!-- District 5 -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-khiva-turquoise/10 text-khiva-turquoise flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-water"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-khiva-night mb-2">Yangio'rik & Qo'shko'pir</h3>
+                    <p class="text-gray-500 text-xs mb-3">Uzumchilik va bog'dorchilik markazlari.</p>
+                    <span class="text-xs font-semibold text-gray-500">Uzumchilik</span>
+                </div>
+
+                <!-- District 6 -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-khiva-gold/10 text-khiva-gold flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-landmark"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-khiva-night mb-2">Shovot Tumani</h3>
+                    <p class="text-gray-500 text-xs mb-3">Kanal va irrigatsiya tarmoqlariga ega bog'lar o'lkasi.</p>
+                    <span class="text-xs font-semibold text-gray-500">Savdo & Sanoat</span>
+                </div>
+
+                <!-- District 7 -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-khiva-terracotta/10 text-khiva-terracotta flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-khiva-night mb-2">Bog'ot & Hazorasp</h3>
+                    <p class="text-gray-500 text-xs mb-3">Qadimiy Xazorasp (Qal'a) shaharchasi joylashgan maskan.</p>
+                    <span class="text-xs font-semibold text-khiva-terracotta">Qadimiy Tarix</span>
+                </div>
+
+                <!-- District 8 -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-khiva-darkblue/10 text-khiva-darkblue flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-khiva-night mb-2">Tuproqqal'a Tumani</h3>
+                    <p class="text-gray-500 text-xs mb-3">Arxeologik topilmalar va cho'l qal'alariga boy hudud.</p>
+                    <span class="text-xs font-semibold text-khiva-darkblue">Arxeologiya</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galereya" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center space-x-2 text-khiva-turquoise font-semibold uppercase tracking-wider text-sm">
+                    <span class="w-8 h-0.5 bg-khiva-turquoise"></span>
+                    <span>Fotolavhalar</span>
+                    <span class="w-8 h-0.5 bg-khiva-turquoise"></span>
+                </div>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-khiva-night">
+                    Xorazm Manzaralari Galereyasi
+                </h2>
+                <p class="text-gray-600">
+                    Noyob fotosuratlar orqali Xorazmning betakror go'zalligini his eting.
+                </p>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="h-64 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group relative">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=600" 
+                         alt="Khiva Sunset" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white text-sm font-medium">
+                        Quyosh botishidagi Ichan Qal'a
+                    </div>
+                </div>
+
+                <div class="h-64 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group relative">
+                    <img src="https://images.unsplash.com/photo-1628105031102-12463273e34b?auto=format&fit=crop&q=80&w=600" 
+                         alt="Khiva Minaret" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white text-sm font-medium">
+                        Moviy koshinlar jozibasi
+                    </div>
+                </div>
+
+                <div class="h-64 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group relative">
+                    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&q=80&w=600" 
+                         alt="Khiva Streets" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white text-sm font-medium">
+                        Qadimiy ko'chalar
+                    </div>
+                </div>
+
+                <div class="h-64 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group relative">
+                    <img src="https://placehold.co/600x600/C85A32/FFFFFF?text=Xorazm+Hunarmandchiligi" 
+                         alt="Crafts" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white text-sm font-medium">
+                        Yog'och oymakorlik san'ati
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Travel Info / FAQ Banner -->
+    <section class="py-16 bg-gradient-to-r from-khiva-blue to-khiva-darkblue text-white">
+        <div class="max-w-5xl mx-auto px-4 text-center space-y-6">
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold">
+                Xorazmga Sayohat Qilishni Rejalashtiryapsizmi?
+            </h2>
+            <p class="text-gray-200 max-w-2xl mx-auto">
+                Toshkentdan Urganchgacha samolyot va poyezd qatnovlari mavjud. Xivaga tezroq yetib borish uchun zamonaviy poyezdlar va avtomobil yo'llari xizmat qiladi.
+            </p>
+            <div class="pt-4 flex justify-center space-x-6 text-sm">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-plane text-khiva-gold text-lg"></i>
+                    <span>Urganch Xalqaro Aeroporti</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-train text-khiva-gold text-lg"></i>
+                    <span>Tezpoyezd Qatnovi</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-khiva-night text-gray-400 py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <div class="space-y-4">
+                    <a href="#" class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-khiva-turquoise flex items-center justify-center text-white font-bold font-serif">X</div>
+                        <span class="font-serif text-xl font-bold text-white">Xorazm</span>
+                    </a>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Xorazm viloyatining boy madaniyati, tarixi va turizm salohiyatini aks ettiruvchi targ'ibot platformasi.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4 text-sm">Tezkor Havolalar</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#tarix" class="hover:text-khiva-gold transition-colors">Viloyat Tarixi</a></li>
+                        <li><a href="#obidalar" class="hover:text-khiva-gold transition-colors">Tarixiy Obidalar</a></li>
+                        <li><a href="#oshxona" class="hover:text-khiva-gold transition-colors">Xorazm Taomlari</a></li>
+                        <li><a href="#hududlar" class="hover:text-khiva-gold transition-colors">Shaharlar va Tumanlar</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4 text-sm">Diqqatga Sazovor Joylar</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#obidalar" class="hover:text-khiva-gold transition-colors">Ichan Qal'a</a></li>
+                        <li><a href="#obidalar" class="hover:text-khiva-gold transition-colors">Kalta Minor</a></li>
+                        <li><a href="#obidalar" class="hover:text-khiva-gold transition-colors">Toshhovli Saroyi</a></li>
+                        <li><a href="#obidalar" class="hover:text-khiva-gold transition-colors">Ellikqal'a Obidalari</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4 text-sm">Ijtimoiy Tarmoqlar</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-khiva-turquoise transition-colors"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-khiva-turquoise transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-khiva-turquoise transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-white/5 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+                <p>&copy; 2026 Xorazm Viloyati Showcase. Barcha huquqlar himoyalangan.</p>
+                <p class="text-gray-500">O'zbekiston Bo'ylab Sayohat Qiling</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Navbar scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-khiva-night/90', 'backdrop-blur-md', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-khiva-night/90', 'backdrop-blur-md', 'shadow-lg');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tab Switching for Gastronomy & Culture
+        function switchTab(tabName) {
+            const taomlarTab = document.getElementById('tab-taomlar');
+            const raqslarTab = document.getElementById('tab-raqslar');
+            const taomlarBtn = document.getElementById('tab-taomlar-btn');
+            const raqslarBtn = document.getElementById('tab-raqslar-btn');
+
+            if (tabName === 'taomlar') {
+                taomlarTab.classList.remove('hidden');
+                raqslarTab.classList.add('hidden');
+
+                taomlarBtn.className = "px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-khiva-turquoise text-white shadow";
+                raqslarBtn.className = "px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 text-gray-300 hover:text-white";
+            } else {
+                taomlarTab.classList.add('hidden');
+                raqslarTab.classList.remove('hidden');
+
+                raqslarBtn.className = "px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-khiva-turquoise text-white shadow";
+                taomlarBtn.className = "px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 text-gray-300 hover:text-white";
+            }
+        }
+    </script>
+</body>
+</html>
